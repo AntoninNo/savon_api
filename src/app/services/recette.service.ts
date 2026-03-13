@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recette } from '../models/recette.model';
+import { RecetteFormDTO } from '../models/dto.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +17,19 @@ export class RecetteService {
   }
   deleteRecette(id: number): Observable<void> {
     return this.http.delete<void>(`${this.API_URL_RECETTE}/${id}`);
+  }
+  /**
+* Enregistre une nouvelle recette.
+* @param recette - L'objet Recette à enregistrer.
+* @returns Un Observable contenant la recette enregistrée.
+*/
+  createRecette(recette: RecetteFormDTO): Observable<Recette> {
+    return this.http.post<Recette>(this.API_URL_RECETTE, recette);
+  }
+  /**
+  * Supprime une recette à partir de son id
+  */
+  deletteRecette(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL_RECETTE}/${id}`)
   }
 }

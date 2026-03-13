@@ -6,8 +6,8 @@ import { RecetteService } from '../../services/recette.service';
   selector: 'app-recettes-manager-page',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './recettes-manager-page.html',
-  styleUrl: './recettes-manager-page.css'
+  templateUrl: './recipe-manager-page.html',
+  styleUrl: './recipe-manager-page.css'
 })
 export class RecettesManagerPage implements OnInit {
   public recettes: Recette[] = [];
