@@ -11,7 +11,6 @@ import { AboutPage } from './pages/about-page/about-page';
 import { LegalNoticePage } from './pages/legal-notice-page/legal-notice-page';
 import { authGuard } from './guards/auth-guard';
 export const routes: Routes = [
-
     // Accès & redirection vers la page home :
     { path: '', pathMatch: 'full', redirectTo: 'home' }, // Route de la racine :
     { path: 'home', component: HomePage },
@@ -23,7 +22,7 @@ export const routes: Routes = [
     // Recettes :
     { path: 'recipe-calculator', component: RecipeCalculatorPage },
     {
-        path: 'recipe-manager', component: RecipeManagerPage, canActivate:
+        path: 'recipe-manager', component: RecettesManagerPage, canActivate:
             [authGuard]
     },
     // Administration - Gestion :
@@ -36,8 +35,8 @@ export const routes: Routes = [
     },
     // A propos :
     { path: "about", component: AboutPage },
-// Mentions légales :
-{ path: "legal-notice", component: LegalNoticePage },
+    // Mentions légales :
+    { path: "legal-notice", component: LegalNoticePage },
     // Redirection par défaut vers home (en cas d'url invalide) :
     { path: '**', redirectTo: 'home' } // Toujours mis en dernier !
 ];
